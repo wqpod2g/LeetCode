@@ -1,6 +1,6 @@
 package Solution;
 
-/*
+/**
  *  Given an input string, reverse the string word by word.
     For example,
     Given s = "the sky is blue",
@@ -10,13 +10,20 @@ package Solution;
  */
 
 public class ReverseWords {
-    public String reverseWords(String s) {
-    	
-    	
+    public static String reverseWords(String s) {
+    	String[] str=s.split(" ");
+    	s="";
+    	for(int i=str.length-1;i>0;i-- ){
+    		s=s+str[i]+" ";
+    	}
+    	s=s+str[0];
     	return s;
         
     }
 	public static void main(String args[]){
+		String s="    ";
+		//s=reverseWords(s);
+		System.out.print(s.length());
 		
 	}
 
