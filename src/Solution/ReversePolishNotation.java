@@ -30,10 +30,7 @@ public class ReversePolishNotation {
         			stack.push(b/a);	
         			break;
         		}
-        		
-        			
         	}
-        	
         }
         sum=stack.pop();
         return sum;
