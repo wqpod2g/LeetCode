@@ -1,5 +1,7 @@
 package Solution;
 
+import java.util.ArrayList;
+
 /**
  *  Given an input string, reverse the string word by word.
     For example,
@@ -11,19 +13,47 @@ package Solution;
 
 public class ReverseWords {
     public static String reverseWords(String s) {
-    	String[] str=s.split(" ");
-    	s="";
-    	for(int i=str.length-1;i>0;i-- ){
-    		s=s+str[i]+" ";
+    	char[] str=s.toCharArray();
+    	ArrayList<String>list=new ArrayList<String>();
+    	String temp="";
+    	for(int i=0;i<str.length;i++){
+    		if(str[i]!=' '){
+    			temp=temp+str[i];
+    		}
+    		else{
+    			if(!temp.isEmpty()){
+    				list.add(temp);
+    				temp="";
+    			}
+    		}
     	}
-    	s=s+str[0];
+    	if(!temp.isEmpty()){
+    		list.add(temp);
+    	}
+    	
+    	s="";
+    	if(list.size()>1){
+    		for(int j=list.size()-1;j>0;j--){
+        		s=s+list.get(j)+" ";
+        	}
+        	s=s+list.get(0);
+    	}
+    		
+    	if(list.size()==1){
+    		s=list.get(0);
+    	}
+    	
+    	
+    	
+    	
     	return s;
+    
         
     }
 	public static void main(String args[]){
-		String s="    ";
-		//s=reverseWords(s);
-		System.out.print(s.length());
+		String s="he     llo    wo";
+		s=reverseWords(s);
+		System.out.print(s);
 		
 	}
 
