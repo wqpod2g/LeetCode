@@ -39,7 +39,6 @@ public class ReversePolishNotation {
         return sum;
     }
 	
-	
 	public static void main(String[] args){
 		String[] tokens={"5","1","/"};
 		System.out.print(evalRPN(tokens));
