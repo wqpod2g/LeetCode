@@ -42,13 +42,7 @@ public class ReverseWords {
     	if(list.size()==1){
     		s=list.get(0);
     	}
-    	
-    	
-    	
-    	
     	return s;
-    
-        
     }
 	public static void main(String args[]){
 		String s="he     llo    wo";
