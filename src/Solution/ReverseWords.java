@@ -1,6 +1,7 @@
 package Solution;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *  Given an input string, reverse the string word by word.
@@ -12,43 +13,27 @@ import java.util.ArrayList;
  */
 
 public class ReverseWords {
-    public static String reverseWords(String s) {
-    	char[] str=s.toCharArray();
-    	ArrayList<String>list=new ArrayList<String>();
-    	String temp="";
-    	for(int i=0;i<str.length;i++){
-    		if(str[i]!=' '){
-    			temp=temp+str[i];
-    		}
-    		else{
-    			if(!temp.isEmpty()){
-    				list.add(temp);
-    				temp="";
-    			}
-    		}
-    	}
-    	if(!temp.isEmpty()){
-    		list.add(temp);
-    	}
-    	
-    	s="";
-    	if(list.size()>1){
-    		for(int j=list.size()-1;j>0;j--){
-        		s=s+list.get(j)+" ";
-        	}
-        	s=s+list.get(0);
-    	}
-    		
-    	if(list.size()==1){
-    		s=list.get(0);
-    	}
-    	return s;
-    }
-	public static void main(String args[]){
-		String s="he     llo    wo";
-		s=reverseWords(s);
-		System.out.print(s);
-		
-	}
+	
+	 public String reverseWords(String s) {
+	        String re = "";
+	        List<String> words = new ArrayList<String>();
+	        String word = "";
+	        int flag = 0;
+	        for(int i=0;i<s.length();i++) {
+	            if(s.charAt(i)!=' ') {
+	                word = word+s.charAt(i);
+	                flag = 1;
+	            }
+	            if(flag==1&&(s.charAt(i)==' '||i==s.length()-1)) {
+	                words.add(word);
+	                word = "";
+	                flag = 0;
+	            }
+	        }
+	        for(int j=0;j<words.size();j++) {
+	            re = words.get(j)+" "+re;
+	        }
+	        return re.trim();
+	    }
 
 }
